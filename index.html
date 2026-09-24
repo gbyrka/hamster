@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WTPHWDLQ7K"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-WTPHWDLQ7K');
+    </script>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#071522" />
+    <meta
+      name="description"
+      content="HAMSTER — little paws, big adventure. Collect treats in a three-dimensional habitat and beat your best score."
+    />
+    <title>HAMSTER — Little paws. Big adventure.</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header>
+        <div>
+          <p class="eyebrow">A LITTLE WORLD TO EXPLORE</p>
+          <a
+            class="brand-logo"
+            href="../games/" aria-label="MoD-IT — Browse all games"
+            ><img src="assets/mod-it.jpg" alt="MoD-IT" width="600" height="323"
+          /></a>
+        </div>
+        <div class="title-block">
+          <div class="title">H<span>A</span>MSTER</div>
+          <div class="subtitle">LITTLE PAWS. BIG ADVENTURE.</div>
+        </div>
+        <div class="scoreboard">
+          <div><span>SCORE</span><strong id="score">0</strong></div>
+          <div><span>BEST</span><strong id="best">0</strong></div>
+          <div><span>TIME</span><strong id="time">180</strong></div>
+        </div>
+      </header>
+      <section class="game-shell" id="shell">
+        <canvas
+          id="game"
+          tabindex="0"
+          aria-label="Three-dimensional hamster habitat. Keyboard controls are listed below the game."
+        ></canvas>
+        <div class="vignette"></div>
+        <div class="mission-pill">
+          <i></i><span id="mission">LITTLE WORLD. BIG APPETITE.</span>
+        </div>
+        <div class="location">
+          <span id="level">01 / BEDDING</span><small>THE LITTLE HABITAT</small>
+        </div>
+        <div class="hud" id="hud" hidden>
+          <div class="energy">
+            <div>
+              <span>ENERGY</span><strong id="energy-label">100%</strong>
+            </div>
+            <div class="meter"><i id="energy-bar"></i></div>
+          </div>
+          <div class="pouches">
+            <span>POUCHES</span>
+            <div id="pouch-slots">○ ○ ○ ○ ○</div>
+            <small id="pouch-help">Collect treats</small>
+          </div>
+        </div>
+        <div class="map-wrap" id="map-wrap" hidden>
+          <span>HABITAT MAP</span
+          ><canvas
+            id="map"
+            width="180"
+            height="148"
+            aria-label="Map of levels and treats"
+          ></canvas
+          ><small>● treats &nbsp; ▲ you</small>
+        </div>
+        <div class="interaction" id="interaction" hidden></div>
+        <div class="toast" id="toast" role="status"></div>
+        <div class="overlay" id="overlay">
+          <div class="card">
+            <p class="eyebrow">MEET YOUR SMALLER SIDE</p>
+            <h1 id="overlay-title">
+              Little paws.<br /><span>Big appetite.</span>
+            </h1>
+            <p class="intro" id="overlay-copy">
+              Adventure is in the air. Step into a hamster’s paws, explore
+              wooden platforms and fill your cheek pouches with treats.
+            </p>
+            <div class="briefing">
+              <div><strong>03</strong><span>habitat levels</span></div>
+              <div><strong>180</strong><span>seconds to explore</span></div>
+              <div><strong>∞</strong><span>little discoveries</span></div>
+            </div>
+            <div class="controls-grid" aria-label="Keyboard controls">
+              <div>
+                <div class="control-keys">
+                  <kbd>W / S</kbd><span>or</span><kbd>↑ / ↓</kbd>
+                </div>
+                <span>forward / reverse</span>
+              </div>
+              <div>
+                <div class="control-keys">
+                  <kbd>A / D</kbd><span>or</span><kbd>← / →</kbd>
+                </div>
+                <span>steer</span>
+              </div>
+              <div><kbd>Shift</kbd><span>hold to walk</span></div>
+              <div><kbd>Space</kbd><span>hold to eat / drink</span></div>
+              <div><kbd>E</kbd><span>enter / leave the wheel</span></div>
+              <div><kbd>C</kbd><span>change camera distance</span></div>
+            </div>
+            <ul class="hint">
+              <li>
+                <b>Fill your cheeks.</b> Find 8 treats across the habitat. Only
+                eaten treats earn points: hold Space for one bite to eat your
+                entire pouch. Gathering more saves time!
+              </li>
+              <li>
+                <b>Take a sip.</b> Hold Space with your nose at the water spout
+                to drink (+2 pts).
+              </li>
+              <li>
+                <b>Keep running.</b> Run in the wheel for 5 seconds to earn
+                +10 seconds, up to 3 times.
+              </li>
+              <li>
+                <b>Explore.</b> Follow ramps to the upper levels or walk into
+                the pastel tubes outside the cage. In a tube: W / ↑ moves
+                forward, S / ↓ curls up to turn around, and A / D or ← / →
+                chooses the next branch.
+              </li>
+            </ul>
+            <div class="actions">
+              <button id="start" disabled>Building your little world…</button
+              ><button class="secondary" id="resume" hidden>Resume game</button>
+            </div>
+            <p id="load-status" role="status">Loading the 3D habitat…</p>
+            <nav class="games-navigation" aria-label="Game collection"><a href="../games/">← Browse all games</a></nav>
+            <div class="menu-credit">Created by <a href="https://www.linkedin.com/in/grzegorz-byrka-81175515/" target="_blank" rel="noopener noreferrer">Grzegorz Byrka <span class="sr-only">on LinkedIn (opens in a new tab)</span> ↗</a></div>
+          </div>
+        </div>
+      </section>
+      <div class="toolbar">
+        <span
+          ><i></i><span id="status-text">An adventure in miniature</span></span
+        >
+        <div>
+          <button id="fullscreen" class="text-button">Full screen</button
+          ><button id="menu" class="text-button">Pause / menu</button>
+        </div>
+      </div>
+      <div class="bottom">
+        <details>
+          <summary>Run history <span>· last 10 runs</span></summary>
+          <ol id="history"></ol>
+        </details>
+        <span id="storage-status" role="status"></span>
+        <p class="control-reference" aria-label="Keyboard controls">
+          <span><kbd>WASD</kbd> or <kbd>↑ ↓ ← →</kbd> move / steer</span>
+          <span><kbd>Shift</kbd> walk</span>
+          <span><kbd>Space</kbd> eat / drink</span>
+          <span><kbd>E</kbd> wheel</span>
+          <span><kbd>C</kbd> camera distance</span>
+          <span><kbd>Esc</kbd> pause</span>
+        </p>
+      </div>
+    </main>
+    <script defer src="game.bundle.js"></script>
+  </body>
+</html>

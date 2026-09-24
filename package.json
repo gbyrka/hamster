@@ -1,0 +1,12 @@
+{
+  "devDependencies": {
+    "esbuild": "0.28.2"
+  },
+  "name": "hamster",
+  "private": true,
+  "scripts": {
+    "build": "esbuild game.js --bundle --loader:.png=dataurl --format=iife --global-name=HamsterGame --target=es2020 --minify --legal-comments=inline --outfile=game.bundle.js",
+    "test": "node tests/world.mjs && node tests/wheel-transition.mjs && node tests/tunnel-forks.mjs && node tests/fixtures.mjs"
+  },
+  "type": "module"
+}
