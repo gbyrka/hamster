@@ -87,3 +87,7 @@ The MoD-IT logo is shared with the existing games and links to the same LinkedIn
 ## Collection navigation
 
 The MoD-IT logo and the menu’s **Browse all games** link open the games collection at `../games/`. The menu footer credits Grzegorz Byrka and links to his LinkedIn profile. Publish the games as sibling paths to preserve local and GitHub Pages navigation.
+
+## Advertising and consent
+
+Publish `ads.css` and `monetization.js` alongside the game. One responsive `game_footer` unit sits below the complete game, separated by 150px; it does not reduce the canvas or overlay play. Google Analytics waits for Google CMP permission. Keep these two files in sync with the other projects and update their `?v=` URLs when changing them. See the sibling games README for the AdSense Consent Mode settings and root `ads.txt` deployment.
