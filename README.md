@@ -90,4 +90,4 @@ The MoD-IT logo and the menu’s **Browse all games** link open the games collec
 
 ## Advertising and consent
 
-Publish `ads.css` and `monetization.js` alongside the game. One responsive `game_footer` unit sits below the complete game, separated by 150px; it does not reduce the canvas or overlay play. Google Analytics waits for Google CMP permission. Keep these two files in sync with the other projects and update their `?v=` URLs when changing them. See the sibling games README for the AdSense Consent Mode settings and root `ads.txt` deployment.
+Publish `ads.css` and `monetization.js` alongside the game. One responsive `game_footer` unit sits below the complete game, separated on both sides by 180px; it does not reduce the canvas or overlay play. Google Analytics waits for Google CMP permission. Keep these two files in sync with the other projects and update their `?v=` URLs when changing them. See the sibling games README for the AdSense Consent Mode settings and root `ads.txt` deployment.
